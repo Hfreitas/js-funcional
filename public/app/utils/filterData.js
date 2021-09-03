@@ -1,13 +1,13 @@
-import './array-utils.js';
+import "./array-utils.js";
 
-export const getValuesFromData = (key = '', data = []) =>
-  data.$flatMap((item) => item[key]);
+export const getValuesFromData = (key = "", data = []) =>
+  data.map((values) => values.$flatMap((item) => item[key]));
 
 export const filterDataByValue = (key, value, data = []) =>
-  data.filter((item) => item[key] === value);
+  data.map((values) => values.filter((item) => item[key] === value));
 
-export const sumValues = (key = '', data = []) =>
-  data.reduce((acc, item) => acc + item[key], 0);
+export const sumValues = (key = "", data = []) =>
+  data.map((values) => values.reduce((acc, item) => acc + item[key], 0));
 
 /* utilizando closures para referenciar o contexto da 
 declaração da função retornada e fazer o curry
